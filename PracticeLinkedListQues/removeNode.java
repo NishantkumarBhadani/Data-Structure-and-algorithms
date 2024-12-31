@@ -49,7 +49,7 @@ public class removeNode {
         e.next=f;
         display(a);
 
-        a=+removeNode1(a,2);
+        a=removeNode1(a,2);
         display(a);
 
     }
