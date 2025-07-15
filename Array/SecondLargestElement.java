@@ -15,6 +15,20 @@ public class SecondLargestElement {
         }
         System.out.println("Second largest is:"+second);
     }
+    public static int secondSmalles(int arr[]){
+        int small=arr[0];
+        int second_small=arr[1];
+        for (int i = 0 ;i < arr.length; i++){
+            if(arr[i]<small){
+                second_small=small;
+                small=arr[i];
+            }
+            else if(arr[i]<second_small && arr[i]!=small){
+                second_small=arr[i];
+            }
+        }
+        return second_small;
+    }
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         System.out.println("Enter the size of array:");
@@ -24,6 +38,7 @@ public class SecondLargestElement {
             arr[i]=sc.nextInt();
         }
         findSecondLargest(arr);
+        System.out.println(secondSmalles(arr));
 
     }
 }
