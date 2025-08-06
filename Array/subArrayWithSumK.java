@@ -14,9 +14,32 @@ public class subArrayWithSumK {
         }
         return len;
     }
+
+    public static int optimal(int arr[],int k){
+        int n=arr.length;
+        int l=0;
+        int r=0;
+        int maxLen=0;
+        int sum=arr[0];
+        while(r<n){
+            while(l<r && sum>k){
+                sum-=arr[l];
+                l++;
+            }
+            if(sum==k){
+                maxLen=Math.max(maxLen,r-l+1);
+            }
+            r++;
+            if(r<n){
+                sum+=arr[r];
+            }
+        }
+        return maxLen;
+    }
      public static void main(String[] args) {
         int arr1[]={1,2,3,4,5,4,2};
         int k=6;
         System.out.println("Length:"+brutForce(arr1, k));
+        System.out.println(optimal(arr1, k));
      }
 }

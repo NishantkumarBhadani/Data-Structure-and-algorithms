@@ -1,3 +1,4 @@
+import java.util.*;
 class Node{
     int data;
     Node next;
@@ -117,26 +118,45 @@ public class Operation{
         
         size--;
     }
+    //aray to linkedlist
+    public static Node arraytoLL(int arr[]){
+        Node head=new Node(arr[0]);
+        Node mover = head;
+        for(int i=1;i<arr.length;i++){
+            Node temp=new Node(arr[i]);
+            mover.next=temp;
+            mover=temp;
+        }
+        return head;
+
+    }
     public static void main(String[] args) {
         Operation list=new Operation();
-        list.insertAtBeginning(5);
-        list.insertAtBeginning(7);
-        list.insertAtBeginning(4);
-        list.insertAtEnd(14);
-        list.insertAtEnd(15);
+        // list.insertAtBeginning(5);
+        // list.insertAtBeginning(7);
+        // list.insertAtBeginning(4);
+        // list.insertAtEnd(14);
+        // list.insertAtEnd(15);
      
 
-        list.InsertAtAnyPosition(350,2);
-        list.display();
+        // list.InsertAtAnyPosition(350,2);
+        // list.display();
         // System.out.println("No. at 4th index:");
         // System.out.println(list.getAT(4));
         // System.out.println(list.getAT(10));
         // System.out.println(list.size);
 
-        list.deleteAtIndex(5);
-        list.display();
-        System.out.println(list.tail.data);
-        
+        // list.deleteAtIndex(5);
+        // list.display();
+        // ArrayList<Integer> arr=new ArrayList<>();
+        // System.out.println(list.tail.data);
+        int arr[]={1,2,5,6};
+        Node head=arraytoLL(arr);
+        Node temp=head;
+        while(temp!=null){
+            System.out.println(temp.data +" ");
+            temp=temp.next;
+        }
         
     }
 }
